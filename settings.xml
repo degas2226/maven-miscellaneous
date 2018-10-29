@@ -1,0 +1,38 @@
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
+                      http://maven.apache.org/xsd/settings-1.0.0.xsd">
+<!--If we are using proxy to the central repository, we can give them here -->
+  <mirrors>
+    <mirror>
+      <id>central-proxy</id>
+      <name>Local proxy of central repo</name>
+      <url>repo url</url>
+      <mirrorOf>central</mirrorOf>
+    </mirror>
+  </mirrors>
+
+  <!--To use other repositories, our default proxy may be restricting. We can use organisation provided proxies here.-->
+  <proxies>
+  <!-- proxy>
+           <nonProxyHosts>host1|ge.com</nonProxyHosts>
+         </proxy>
+         -->
+     <proxy>
+			 <id>http-proxy</id>
+             <active>true</active>
+             <protocol>http</protocol>
+             <host>example.proxy</host>
+             <port>80</port>
+             <nonProxyHosts></nonProxyHosts>
+     </proxy>
+	 <proxy>
+             <id>https-proxy</id>
+			 <active>true</active>
+             <protocol>https</protocol>
+             <host>example.proxy</host>
+             <port>80</port>
+             <nonProxyHosts>artifactory-host1</nonProxyHosts>
+     </proxy>
+     </proxies>
+</settings>
